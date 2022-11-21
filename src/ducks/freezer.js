@@ -7,8 +7,11 @@ export const actionTypes = {
 }
 
 const DEFAULT_STATE = {
-    temperature: null,
-    icecreams: {}
+    temperature: 0,
+    icecreams: {
+        [flavors.CHOCOLATE]: 10,
+        [flavors.VANILLA]: 20,
+    }
 }
 
 // ACTIONS //////////////////////////////////////////////
