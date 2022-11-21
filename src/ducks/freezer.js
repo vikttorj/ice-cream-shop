@@ -1,5 +1,6 @@
 
-import * as flavors from '../constants/icecreams_flavors'
+import * as FLAVORS from '../constants/icecreams_flavors'
+import * as AMOUNTS from '../constants/default_amount'
 
 export const actionTypes = {
     UPDATE_TEMPERATURE: 'UPDATE_TEMPERATURE',
@@ -9,8 +10,8 @@ export const actionTypes = {
 const DEFAULT_STATE = {
     temperature: 0,
     icecreams: {
-        [flavors.CHOCOLATE]: 10,
-        [flavors.VANILLA]: 20,
+        [FLAVORS.CHOCOLATE]: 10,
+        [FLAVORS.VANILLA]: 20,
     }
 }
 
@@ -22,7 +23,7 @@ export const actions = {
             payload: temperature
         }
     },
-    addIceCream(flavor, amount = flavors.DEFAULT_ICECREAM_AMOUNT) {
+    addIceCream(flavor, amount = AMOUNTS.DEFAULT_ICECREAM_AMOUNT) {
         return {
             type: actionTypes.ADD_ICECREAM,
             payload: {
@@ -47,7 +48,7 @@ export default function reducer(state= DEFAULT_STATE, action) {
                 ...state,
                 icecreams: {
                     ...state.icecreams,
-                    [action.payload.flavor]: Math.min(newAmount, flavors.MAX_AMOUNT_PER_ICECREAM)
+                    [action.payload.flavor]: Math.min(newAmount, AMOUNTS.MAX_AMOUNT_PER_ICECREAM)
                 }
             }
         default:

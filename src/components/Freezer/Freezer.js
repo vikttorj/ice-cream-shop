@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
 import Panel from "../Panel/Panel";
+import Button from "../Button/Button";
 import FreezerFlavor from "../FreezerFlavor/FreezerFlavor";
 
 import store from "../../store";
+import * as FLAVORS from '../../constants/icecreams_flavors';
 import { actions as actionsFreezer } from "../../ducks/freezer";
-
 class Freezer extends Component {
   state = {
     flavors: store.getState().freezer.icecreams,
@@ -36,6 +37,14 @@ class Freezer extends Component {
     }
   }
 
+  handleClickAddFlavor = () => {
+    const availableFlavors = Object.keys(FLAVORS);
+    const flavorToRestock = window.prompt(`Enter flavor to restock from ${availableFlavors.join(', ')}`)
+    if(FLAVORS[flavorToRestock]) {
+      this.handleRestock(flavorToRestock)
+    }
+  }
+
   render() {
     console.log(this.state);
     const flavors = this.state.flavors;
@@ -49,6 +58,8 @@ class Freezer extends Component {
     ));
     return (
       <Panel title={`Freezer (${this.state.temperature}°C)`}>
+        <Button label='Add flavor' onClick={this.handleClickAddFlavor} />
+        <br/>
         {freezerFlavors}
       </Panel>
     );
