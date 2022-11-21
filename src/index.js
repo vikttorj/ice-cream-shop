@@ -1,9 +1,6 @@
-import store from './store';
-import * as flavors from './constants/icecreams_flavors'
-import { actions } from './ducks/freezer';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from './components/App/App'
 
-console.log( store.getState() );
 
-store.subscribe( () => console.log( store.getState() ));
-store.dispatch(actions.updateTemperature(-9))
-store.dispatch(actions.addIceCream(flavors.FABADA, 33))
+ReactDOM.render(<App/>, document.getElementById('root'))
