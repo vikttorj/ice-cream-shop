@@ -4,6 +4,7 @@ import Freezer from '../Freezer/Freezer';
 import NewOrder from '../NewOrder/NewOrder';
 import { Column, Row } from '../Grid/Grid';
 import OrderOverview from '../OrderOverview/OrderOverview';
+import OrderOverviewPaid from '../OrderOverviewPaid/OrderOverviewPaid';
 import Colleagues from '../Colleagues/Colleagues';
 
 import './App.css';
@@ -27,6 +28,11 @@ class App extends Component {
           </Column>
           <Column size={1}>
             <Colleagues />
+          </Column>
+        </Row>
+        <Row>
+          <Column size={4}>
+            <OrderOverviewPaid />
           </Column>
         </Row>
       </main>

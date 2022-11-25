@@ -1,3 +1,9 @@
+.colleague{
+  cursor: pointer;
+}
+.colleague:hover{
+  background-color:  pink;
+}
 .colleagues-table {
   width: 100%;
   border-collapse: collapse;
@@ -5,7 +11,7 @@
 
 .colleague td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 10px 0;
+  padding: 10px;
 }
 
 .colleague__photo {
